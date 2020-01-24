@@ -1,4 +1,4 @@
-import Game from "./game";
+import Game from "./game.js";
 
 
 let canvas = document.getElementById("gameScreen");
@@ -8,9 +8,6 @@ const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
 
 let game = new Game(GAME_WIDTH, GAME_HEIGHT)
-
-
-
 
 
 let lastTime = 0;
@@ -24,13 +21,9 @@ function gameLoop(timestamp){
 
     ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-    paddle.update(deltaTime);
-    paddle.draw(ctx);
-
-    ball.update(deltaTime);
-    ball.draw(ctx);
-
-
+    game.update(deltaTime);
+    game.draw(ctx);
+   
     requestAnimationFrame(gameLoop);
 }
 
